@@ -26,7 +26,7 @@ env:
 
 jobs:
   test_non_bootstrapped:
-    runs-on: [self-hosted, Linux]
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2021-03-22
       options: --cpu-shares 4096
@@ -70,7 +70,7 @@ jobs:
           ./project/scripts/cmdTests
 
   test:
-    runs-on: [self-hosted, Linux]
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2021-03-22
       options: --cpu-shares 4096
@@ -189,7 +189,7 @@ jobs:
         shell: cmd
 
   community_build_a:
-    runs-on: [self-hosted, Linux]
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2021-03-22
       options: --cpu-shares 4096
@@ -232,7 +232,7 @@ jobs:
           ./project/scripts/sbt "community-build/testOnly dotty.communitybuild.CommunityBuildTestA"
 
   community_build_b:
-    runs-on: [self-hosted, Linux]
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2021-03-22
       options: --cpu-shares 4096
@@ -275,7 +275,7 @@ jobs:
           ./project/scripts/sbt "community-build/testOnly dotty.communitybuild.CommunityBuildTestB"
 
   community_build_c:
-    runs-on: [self-hosted, Linux]
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2020-11-19
       options: --cpu-shares 4096
@@ -318,7 +318,7 @@ jobs:
           ./project/scripts/sbt "community-build/testOnly dotty.communitybuild.CommunityBuildTestC"
 
   test_sbt:
-    runs-on: [self-hosted, Linux]
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2021-03-22
       options: --cpu-shares 4096
@@ -358,7 +358,7 @@ jobs:
         run: ./project/scripts/sbt "sbt-test/scripted; sbt-community-build/scripted"
 
   test_java8:
-    runs-on: [self-hosted, Linux]
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2021-03-22
       options: --cpu-shares 4096
@@ -407,7 +407,7 @@ jobs:
           ./project/scripts/bootstrapCmdTests
 
   publish_nightly:
-    runs-on: [self-hosted, Linux]
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2021-03-22
       options: --cpu-shares 4096
@@ -458,7 +458,7 @@ jobs:
           ./project/scripts/sbtPublish ";project scala3-bootstrapped ;publishSigned ;sonatypeBundleRelease"
 
   nightly_documentation:
-    runs-on: [self-hosted, Linux]
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2021-03-22
       options: --cpu-shares 4096
@@ -507,7 +507,7 @@ jobs:
 
 
   publish_release:
-    runs-on: [self-hosted, Linux]
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2021-03-22
       options: --cpu-shares 4096
@@ -592,7 +592,7 @@ jobs:
           asset_content_type: text/plain
 
   open_issue_on_failure:
-    runs-on: [self-hosted, Linux]
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2021-03-22
     needs: [nightly_documentation, test_windows_full]
